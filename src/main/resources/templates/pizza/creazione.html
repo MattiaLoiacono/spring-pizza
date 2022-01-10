@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/resources :: headTags"></div>
+	<title>Pizza</title>
+</head>
+<body>
+	<form 
+		id="pizza-form" 
+		th:object="${pizza}"
+		th:action="@{/menu/new}"
+		method="post"
+	>
+	<div class="row gy-2">
+		<div class="col-12">
+			<label class="form-label" for="nome">Nome</label>
+			<input type="text" class="form-control" id="nome" th:field="*{nome}">
+		</div>
+		<div class="col-12">
+			<label class="form-label" for="prezzo">Prezzo</label>
+			<input type="number" class="form-control" id="prezzo" th:field="*{prezzo}">
+		</div>
+		<div class="col-12">
+			<label class="form-label" for="Categoria">Categoria</label>
+			<textarea class="form-control" id="Categoria" th:field="*{Categoria}" rows="6"></textarea>
+		</div>
+		<div class="col-12">
+			<button class="btn btn-primary" type="submit">Salva</button>
+		</div>
+	</div>
+
+	<div th:replace="fragments/resources :: scripts"></div>
+</body>
+</html>
