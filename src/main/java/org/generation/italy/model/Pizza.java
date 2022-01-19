@@ -1,5 +1,6 @@
 package org.generation.italy.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -68,7 +69,13 @@ public class Pizza {
 		Categoria = categoria;
 	}
 
-
+	public String ingredientiString() {
+		List<String> ingredientiS = new ArrayList<>();
+		for(Ingrediente i : ingredienti) {
+			ingredientiS.add(i.getName());
+		}
+		return String.join(", ", ingredientiS);
+	}
 	
 	
 }

@@ -21,5 +21,18 @@ public class PizzaService {
 	public Pizza save(Pizza pizza) {
 		return repository.save(pizza);
 	}
+
+	public Pizza getById(Integer id) {
+		return repository.getById(id);
+		
+	}
 	
+	public void deleteById(Integer id) {
+		repository.deleteById(id);
+	}
+
+	public List<Pizza> findByKeyword(String keyword) {
+		return repository.findByNomeContainingIgnoreCase(keyword);
+		
+	}
 }

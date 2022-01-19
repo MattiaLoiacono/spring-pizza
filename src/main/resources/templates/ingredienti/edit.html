@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/resources :: headTags"></div>
+	<title>Pizza</title>
+</head>
+<body>
+	<form 
+		id="pizza-form" 
+		th:object="${ingrediente}"
+		th:action="@{/ingredienti/edit/{id}}"
+		method="post"
+	>
+		<div>
+		<label class="form-label" for="nome">Nome</label>
+		<input type="text" class="form-control" id="nome" th:field="*{nome}">
+		</div>
+		<button class="btn btn-primary" type="submit">Salva</button>
+	<div th:replace="fragments/resources :: scripts"></div>
+</body>
+</html>

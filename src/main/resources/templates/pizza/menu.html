@@ -6,6 +6,7 @@
 </head>
 	<body>
 		<h1 class="text-danger text-center">Menu</h1>
+		<a class="btn btn-primary mb-3" th:href="@{/menu/new}">Aggiungi Pizza</a>
 		<ul th:if="${menu.size() > 0}">
 			<li th:each="pizza : ${menu}">
 				<div class="container">
@@ -13,14 +14,20 @@
 						<div th:text="${pizza.nome}" class="text-dark fs-2 col"></div>
 						<div th:text="|${pizza.prezzo} €|" class=" col text-dark fs-2 text-end"></div>		
 					</div>
-				</div>
+					<div class="row">
+						<div th:text="${pizza.ingredientiString()}" class="text-secondary fs-3"></div>
+						
+					</div>
+					<a class="btn btn-primary" th:href="@{|/menu/edit/${pizza.id}|}"></i>Modifica</a>
+					<a class="btn btn-primary" th:href="@{|/menu/delete/${pizza.id}|}">Elimina</a>
+				</div >
 			</li>
 		</ul >
 		<div class="alert alert-primary" role="alert" th:unless="${menu.size() > 0}">
 			  The menu is empty
 		</div>
 		
-		
+		<a class="btn btn-primary mb-3" th:href="@{/ingredienti}">Lista Ingredienti</a>
 		<div th:replace="fragments/resources :: scripts"></div>
 	</body>
 </html>

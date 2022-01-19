@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/resources :: headTags"></div>
+	<title>Pizza</title>
+</head>
+	<body>
+		<h1 class="text-danger text-center">Lista Ingredienti</h1>
+		<a class="btn btn-primary mb-3" th:href="@{/ingredienti/new}">Aggiungi Ingrediente</a>
+		<ul th:if="${ingredienti.size() > 0}">
+			<li th:each="ingrediente : ${ingredienti}">
+				<div th:text="${ingrediente.getName()}"></div>
+				<a class="btn btn-primary" th:href="@{|/menu/edit/${ingrediente.id}|}"></i>Modifica</a>
+				<a class="btn btn-primary" th:href="@{|/menu/delete/${ingrediente.id}|}">Elimina</a>
+			</li>
+		</ul>
+		<a class="btn btn-primary mb-3" th:href="@{/menu}">Torna al menu</a>
+		<div th:replace="fragments/resources :: scripts"></div>
+	</body>
+</html>
